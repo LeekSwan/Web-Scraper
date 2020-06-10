@@ -1,2 +1,2 @@
 # Web-Scraper
-Web scraper using Python3. More updates incoming. 
+Testing some web scraping things. Needs clean up. More updates incoming. 
