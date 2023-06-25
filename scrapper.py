@@ -22,8 +22,10 @@ def get_page_data(req_url):
   ownerInfo = soup.find_all('div', class_="ownerInfo")
   for i in ownerInfo:
     name = i.find('h2').text
-    address = i.find('h3').get_text(separator=" ").strip()
+    address = i.find('h3').get_text(separator="<br/>").strip().split('<br/>')
+    street = address[0]
+    city = address[1]
+  return ([name, street,city, unit, subdivision, pin, tms])
 
-  return ([name, address, unit, subdivision, pin, tms])
 
-
+# get_page_data('https://horrycounty.org/apps/LandRecords/PropertyCard/42415030067')

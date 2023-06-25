@@ -14,11 +14,12 @@ def run_scrapper():
 
     date_last_retrieved = [str(date.today())] * 10
 
-    headers = ['name', 'address', 'unit', 'subdivision', 'pin', 'tms']
+    headers = ['name', 'street','city', 'unit', 'subdivision', 'pin', 'tms']
     with open("horry_county_records.csv", "w+", newline='') as my_csv:
         writer = csv.writer(my_csv)
         writer.writerow(headers)
         for i in range(int(user_input_start), int(user_input_end) + 1):
+            print('############### Scrapping id: ' + str(i) + ' ################')
             scraper_data = scrapper.get_page_data('https://horrycounty.org/apps/LandRecords/PropertyCard/' + str(i))
             if scraper_data:
                 writer.writerow(scraper_data)
